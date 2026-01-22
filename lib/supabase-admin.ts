@@ -3,10 +3,5 @@ import { createClient } from "@supabase/supabase-js";
 export function supabaseAdmin() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
   const service = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-  if (!service) throw new Error("SERVICE_ROLE_MISSING");
-
-  return createClient(url, service, {
-    auth: { persistSession: false },
-  });
+  return createClient(url, service, { auth: { persistSession: false } });
 }
-
